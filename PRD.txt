@@ -1,0 +1,537 @@
+PRODUCT REQUIREMENTS DOCUMENT (PRD)
+Propel Tax Advisory Website
+
+Version: 1.0
+Client: Propel Tax Advisory
+Primary Contact: Jerry Rubino, CPA, EA
+Website Type: Professional Services / Tax Advisory Firm
+Pages: Landing Page, About Page, Services Page
+
+1. PROJECT OVERVIEW
+Business Name
+
+Propel Tax Advisory
+
+Tagline
+
+Plan. Protect. Propel.
+
+Mission
+
+Help business owners, investors, and real estate operators legally reduce taxes through proactive tax strategy, entity structuring, retirement planning, and advanced tax planning techniques.
+
+Website Goal
+
+The website should position Jerry Rubino as a trusted tax strategist rather than a traditional tax preparer.
+
+Visitors should immediately understand:
+
+Who Jerry is
+What Propel Tax Advisory does
+Who it serves
+Why tax strategy matters
+How to schedule a consultation
+
+Primary conversion goal:
+
+Book a Strategy Consultation
+
+2. BRAND GUIDELINES
+Brand Personality
+
+Professional
+
+Trustworthy
+
+Sophisticated
+
+Premium
+
+Strategic
+
+Modern CPA Firm
+
+Not corporate and boring.
+
+Not flashy startup.
+
+Think:
+
+Wealth advisor
+Private investment firm
+Family office
+Premium tax strategist
+Logo
+
+Use provided Propel Tax Advisory logo.
+
+Do not recreate.
+
+Always maintain spacing around logo.
+
+Brand Colors
+
+Extracted from logo:
+
+Primary Navy
+
+#0B2D63
+
+Use for:
+
+Headings
+Navigation
+Buttons
+Hero text
+Primary Gold
+
+#C8A25A
+
+Use for:
+
+Accents
+Icons
+Dividers
+Hover states
+Callouts
+Light Cream Background
+
+#F7F5F0
+
+Use for:
+
+Section backgrounds
+Overall site feel
+Dark Text
+
+#1F2937
+
+Use for body copy
+
+White
+
+#FFFFFF
+
+Use for cards and content sections
+
+Typography
+Headings
+
+Playfair Display
+
+or
+
+Cormorant Garamond
+
+Style:
+
+Elegant financial advisory look
+
+Body
+
+Inter
+
+or
+
+Open Sans
+
+Clean modern readability
+
+3. TARGET AUDIENCE
+Primary
+
+Business Owners
+
+Examples:
+
+Contractors
+Service businesses
+Entrepreneurs
+Small business owners
+Secondary
+
+Real Estate Investors
+
+Examples:
+
+Rental property owners
+Multi-unit investors
+Short-term rental operators
+Tertiary
+
+High Income Professionals
+
+Examples:
+
+Physicians
+Attorneys
+Consultants
+Executives
+4. WEBSITE STRUCTURE
+Page 1
+
+Landing Page
+
+URL:
+
+/
+
+Page 2
+
+About
+
+URL:
+
+/about
+
+Page 3
+
+Services
+
+URL:
+
+/services
+
+5. LANDING PAGE
+Hero Section
+Headline
+
+Tax Strategy That Helps You Keep More of What You Earn
+
+Subheadline
+
+Proactive tax planning for business owners, investors, and real estate operators.
+
+CTA Buttons
+
+Primary:
+
+Book A Consultation
+
+Secondary:
+
+Explore Services
+
+Hero Layout
+
+Left:
+
+Headline
+
+Subheadline
+
+Buttons
+
+Right:
+
+Propel logo or professional image of Jerry
+
+Background:
+
+Light cream
+
+Subtle gold accents
+
+Trust Section
+Headline
+
+Why Clients Choose Propel Tax Advisory
+
+Cards
+Proactive Tax Planning
+
+Reduce taxes before filing season arrives.
+
+Business Tax Strategy
+
+Entity structure, compensation planning, deductions, and compliance.
+
+Real Estate Expertise
+
+Cost segregation, depreciation planning, and rental strategies.
+
+Retirement Planning
+
+SEP IRA, SIMPLE IRA, Cash Balance Plans, and Roth strategies.
+
+Services Overview Section
+
+Three featured cards:
+
+Tax Strategy
+
+Custom planning designed to legally reduce tax liability.
+
+Entity Structure Planning
+
+S-Corps, LLCs, partnerships, and compensation strategy.
+
+Real Estate Tax Planning
+
+Advanced strategies for investors and operators.
+
+Button:
+
+View All Services
+
+Why Tax Strategy Matters
+
+Educational section.
+
+Position Jerry as advisor.
+
+Sample messaging:
+
+Most taxpayers focus on filing taxes.
+
+Our clients focus on planning taxes.
+
+A proactive strategy can create opportunities through entity structure, retirement planning, depreciation, cost segregation, and other advanced tax planning techniques.
+
+CTA Section
+
+Headline:
+
+Ready to Build Your Tax Strategy?
+
+Text:
+
+Schedule a consultation and discover opportunities to improve your tax position.
+
+Button:
+
+Schedule Consultation
+
+Footer
+
+Logo
+
+Tagline
+
+Quick Links
+
+About
+
+Services
+
+Contact
+
+Copyright
+
+6. ABOUT PAGE
+Hero Section
+
+Headline:
+
+Meet Jerry Rubino, CPA, EA
+
+Subheadline:
+
+Tax strategy experience grounded in real-world planning for business owners, investors, and real estate operators.
+
+Professional family image from strategy plan can be used if client approves.
+
+Biography Section
+
+Create professional narrative from provided materials:
+
+Background
+Raised near Detroit, Michigan
+Graduate of John Carroll University
+Currently resides in Northeast Ohio
+Experience
+Nearly 15 years in public accounting
+Experience at PwC
+Experience at KPMG
+Led tax department for a large Las Vegas startup handling 1,000+ tax returns annually
+
+Source: Client strategy document.
+
+Expertise Section
+Tax Strategy
+Entity structure planning
+S-Corporation strategy
+Compensation planning
+Business deductions
+Real Estate Planning
+Cost segregation
+Depreciation strategies
+Passive activity planning
+Real estate professional strategies
+Retirement Planning
+SEP IRA
+SIMPLE IRA
+Cash Balance Plans
+Roth Conversion Planning
+Alternative Investments
+DSTs
+REITs
+Oil & Gas Investments
+Opportunity Zones
+
+Source: Client strategy document.
+
+Philosophy Section
+Heading
+
+Plan Ahead. Protect What Matters. Propel Your Future.
+
+Copy
+
+Tax planning should be proactive, strategic, and aligned with your long-term financial goals.
+
+At Propel Tax Advisory, we help clients create sustainable tax strategies designed to support growth, wealth preservation, and future opportunities.
+
+7. SERVICES PAGE
+Hero
+
+Headline:
+
+Strategic Tax Planning Services
+
+Subheadline:
+
+Comprehensive tax strategies built around your business, investments, and long-term goals.
+
+Service 1
+Tax Strategy & Planning
+
+Includes:
+
+Annual tax strategy reviews
+Tax reduction planning
+Income timing strategies
+Deduction optimization
+Multi-year planning
+Service 2
+Entity Structure Consulting
+
+Includes:
+
+LLC analysis
+S-Corp planning
+Partnership structures
+Compensation planning
+Business restructuring
+Service 3
+Real Estate Tax Planning
+
+Includes:
+
+Cost segregation review
+Depreciation planning
+Rental property optimization
+Short-term rental strategies
+Real estate professional status analysis
+Service 4
+Retirement & Wealth Planning
+
+Includes:
+
+SEP IRA planning
+SIMPLE IRA planning
+Cash balance plans
+Roth conversions
+Tax-efficient wealth accumulation
+Service 5
+Business Advisory
+
+Includes:
+
+Growth planning
+Tax forecasting
+Financial strategy
+Coordination with legal and financial advisors
+Final CTA
+
+Headline:
+
+Let's Build Your Tax Strategy
+
+Text:
+
+Schedule a consultation to identify opportunities and create a proactive tax plan.
+
+Button:
+
+Book Consultation
+
+8. DESIGN REQUIREMENTS
+Style
+
+Premium financial advisory firm
+
+Modern luxury
+
+Professional
+
+High trust
+
+Minimalist
+
+Visual Elements
+
+Use:
+
+Gold dividers
+Compass-inspired logo elements
+Subtle geometric backgrounds
+White space
+
+Avoid:
+
+Stock imagery overload
+Bright colors
+Cartoon icons
+Generic accounting templates
+Layout
+
+Desktop-first
+
+Responsive mobile design
+
+Fast loading
+
+Accessibility compliant
+
+SEO friendly
+
+9. SEO REQUIREMENTS
+
+Primary Keywords:
+
+Tax Advisory
+Tax Strategy
+Tax Planning
+CPA Tax Planning
+Business Tax Strategy
+Real Estate Tax Planning
+Tax Consultant
+
+Local Keywords:
+
+Ohio Tax Advisor
+CPA Ohio
+Tax Planning Ohio
+10. FUTURE PHASES (NOT IN V1)
+
+Do not build now, but architecture should support:
+
+Blog
+Resources
+Tax Savings Calculator
+Client Portal
+Appointment Scheduling
+Lead Magnet Downloads
+Case Studies
+FAQ Center
+CRM Integration
+Email Marketing Integration
+SUCCESS METRIC
+
+A visitor should understand within 10 seconds:
+
+What Propel Tax Advisory does.
+Who Jerry helps.
+Why he is qualified.
+How to schedule a consultation.
