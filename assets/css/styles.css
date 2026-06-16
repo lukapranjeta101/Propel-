@@ -801,22 +801,24 @@ li::before {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  /* Fill the left column with the navy so the gap below the sticky
+     image doesn't show as bare white space */
+  background: linear-gradient(90deg, var(--navy) 50%, transparent 50%);
   /* min-height set by JS based on pill count */
 }
 
 .savings-image {
-  /* Stretch to fill the full column height so no gap shows below */
+  position: sticky;
+  top: 84px;
+  height: calc(100vh - 84px);
+  align-self: start;   /* start at section top, only occupies viewport height */
   overflow: hidden;
 }
 
 .savings-image img {
-  /* Sticky lives on the img so it follows the viewport
-     while the wrapper fills the entire left column */
-  position: sticky;
-  top: 84px;
   display: block;
   width: 100%;
-  height: calc(100vh - 84px);
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }
@@ -892,16 +894,18 @@ li::before {
 @media (max-width: 900px) {
   .savings-section {
     grid-template-columns: 1fr;
+    background: none; /* remove desktop gradient on mobile */
     /* min-height still set by JS */
   }
 
-  /* Reset img sticky — just a fixed-height banner */
   .savings-image {
+    position: relative;
+    top: 0;
     height: 260px;
+    align-self: auto;
   }
 
   .savings-image img {
-    position: static;
     height: 100%;
   }
 
