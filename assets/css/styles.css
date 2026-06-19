@@ -126,106 +126,155 @@ li::before {
 }
 
 .site-header {
-  position: sticky;
+  position: relative;
   z-index: 100;
-  top: 0;
-  background: rgba(247, 245, 240, 0.92);
-  border-bottom: 1px solid rgba(200, 162, 90, 0.22);
+  background: rgba(247, 245, 240, 0.96);
+  border-bottom: 1px solid rgba(200, 162, 90, 0.3);
   backdrop-filter: blur(18px);
 }
 
 .nav {
-  display: flex;
-  min-height: 84px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas: "left brand right";
+  height: 90px;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
 }
 
 .brand {
+  grid-area: brand;
   display: inline-flex;
   align-items: center;
-  gap: 0.12rem;
 }
 
-.brand-icon {
-  width: 58px;
-  height: 58px;
-  object-fit: contain;
-}
-
-.brand-name {
-  width: 190px;
-  height: 58px;
-  margin-left: -1rem;
-  object-fit: cover;
-  object-position: center 46.5%;
-}
-
-.nav-menu {
+/* Clips black padding inside pta.png so only the text shows */
+.brand-logo-wrap {
   display: flex;
   align-items: center;
-  gap: 1.75rem;
+  height: 90px;
+  overflow: hidden;
+}
+
+.brand-logo {
+  height: 170px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-top: -8px;
+}
+
+/* nav-menu is invisible to the grid — its children participate directly */
+.nav-menu {
+  display: contents;
+}
+
+.nav-left {
+  grid-area: left;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
   color: var(--navy);
-  font-size: 0.84rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.nav-menu a {
-  position: relative;
-  padding: 0.45rem 0;
+.nav-right {
+  grid-area: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.nav-menu a::after {
+.nav-left a {
+  position: relative;
+  padding: 0.4rem 0;
+  color: var(--navy);
+  transition: color 150ms ease;
+}
+
+.nav-left a::after {
   content: "";
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
-  height: 2px;
+  height: 1.5px;
+  background: var(--gold);
   transform: scaleX(0);
   transform-origin: right;
-  background: var(--gold);
-  transition: transform 180ms ease;
+  transition: transform 200ms ease;
 }
 
-.nav-menu a:hover::after,
-.nav-menu a[aria-current="page"]::after {
+.nav-left a:hover::after,
+.nav-left a[aria-current="page"]::after {
   transform: scaleX(1);
   transform-origin: left;
 }
 
-.nav-menu .nav-cta {
-  padding: 0.78rem 1rem;
-  border: 1px solid var(--gold);
+.nav-left a[aria-current="page"] {
+  color: var(--navy);
 }
 
-.nav-menu .nav-cta::after {
-  display: none;
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: 4px;
+  border: 1.5px solid var(--gold);
+  color: var(--navy);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: transparent;
+  transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
 }
 
-.nav-menu .nav-cta:hover {
+.nav-cta:hover {
   background: var(--navy);
   color: var(--white);
+  border-color: var(--navy);
 }
 
 .nav-toggle {
   display: none;
-  width: 46px;
-  height: 46px;
-  place-items: center;
-  border: 1px solid var(--line);
-  background: var(--white);
+  width: 40px;
+  height: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  z-index: 10;
 }
 
+/* Three clean lines */
 .nav-toggle span:not(.sr-only) {
   display: block;
-  width: 20px;
+  width: 24px;
   height: 2px;
-  margin: 3px auto;
   background: var(--navy);
+  border-radius: 2px;
+  transition: opacity 150ms ease, transform 200ms ease;
+}
+
+/* Animate to X when open */
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .hero,
@@ -253,7 +302,7 @@ li::before {
 .hero-grid {
   position: relative;
   display: grid;
-  min-height: calc(100vh - 84px);
+  min-height: 100vh;
   align-items: center;
   justify-items: center;
   text-align: center;
@@ -262,6 +311,9 @@ li::before {
 
 .hero-copy {
   max-width: 920px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-copy .eyebrow {
@@ -460,115 +512,66 @@ li::before {
 
 .about-story-grid {
   display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
   align-items: center;
-  gap: clamp(1.8rem, 3.2vw, 3.25rem);
-  grid-template-columns: minmax(250px, 0.76fr) minmax(420px, 1fr) minmax(210px, 0.58fr);
 }
 
-.about-collage {
+.about-pfp-wrap {
   position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(200, 162, 90, 0.28);
-  background: var(--cream);
-  box-shadow: 0 16px 42px rgba(11, 45, 99, 0.08);
 }
 
-.about-collage-large {
-  min-height: 390px;
-  max-width: 360px;
-  border-radius: 18px;
-}
-
-.about-collage-large::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background:
-    linear-gradient(90deg, rgba(200, 162, 90, 0.24), transparent 42%),
-    linear-gradient(180deg, transparent 58%, rgba(7, 31, 69, 0.34));
-  pointer-events: none;
-}
-
-.about-collage-main {
+.about-pfp {
   width: 100%;
-  height: 100%;
+  height: clamp(320px, 40vw, 460px);
   object-fit: cover;
-  object-position: 50% 39%;
+  object-position: 50% 18%;
+  border-radius: 18px;
+  border: 1px solid rgba(200, 162, 90, 0.28);
+  box-shadow: 0 20px 56px rgba(11, 45, 99, 0.13);
 }
 
-.about-story-copy {
-  position: relative;
-  z-index: 2;
-  grid-column: 2 / 4;
-  grid-row: 1;
+.about-story-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.about-label-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.about-vert-line {
+  display: block;
+  width: 2px;
+  height: 28px;
+  background: var(--gold);
+  flex-shrink: 0;
 }
 
 .script-label {
-  margin: 0 0 0.75rem calc(1.4rem + 2px);
+  margin: 0;
   color: var(--navy);
   font-family: var(--font-heading);
   font-size: 1.25rem;
   font-style: italic;
 }
 
-.about-headline-row {
-  display: grid;
-  align-items: stretch;
-  gap: 1.4rem;
-  grid-template-columns: 2px 1fr;
-}
-
-.about-headline-line {
-  display: block;
-  width: 2px;
-  height: 100%;
-  background: var(--navy);
-}
-
-.about-story-copy h2 {
-  max-width: 940px;
-  font-family: var(--font-body);
-  font-size: clamp(2.25rem, 3.45vw, 3.9rem);
-  font-weight: 800;
-  letter-spacing: 0.01em;
-  line-height: 1.18;
-  text-transform: uppercase;
-}
-
-.about-story-body {
-  max-width: 500px;
-}
-
-.about-story-body p {
+.about-story-text {
   color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.55;
-}
-
-.about-story-body p:first-child {
-  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  margin: 0;
 }
 
 .about-story-button {
-  margin-top: 0.6rem;
-}
-
-.about-collage-small {
-  z-index: 1;
-  grid-column: 3;
-  grid-row: 1;
-  min-height: 260px;
-  align-self: end;
-  margin-top: 16rem;
-  border-radius: 18px;
-}
-
-.about-collage-small img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 34%;
+  width: fit-content;
+  min-height: auto;
+  padding: 0.5rem 0.75rem;
+  margin: 0 auto;
+  display: block;
 }
 
 .section-heading {
@@ -636,10 +639,15 @@ li::before {
   grid-template-columns: minmax(0, 0.86fr) minmax(0, 1fr);
 }
 
-.services-preview,
 .bio-section,
 .services-list-section {
   background: var(--white);
+}
+
+.services-preview {
+  background:
+    linear-gradient(120deg, rgba(247, 245, 240, 0.96), rgba(255, 255, 255, 0.86)),
+    radial-gradient(circle at 78% 28%, rgba(200, 162, 90, 0.2), transparent 34%);
 }
 
 .service-stack {
@@ -809,8 +817,8 @@ li::before {
 
 .savings-image {
   position: sticky;
-  top: 84px;
-  height: calc(100vh - 84px);
+  top: 0;
+  height: 100vh;
   align-self: start;   /* start at section top, only occupies viewport height */
   overflow: hidden;
 }
@@ -825,8 +833,8 @@ li::before {
 
 .savings-content {
   position: sticky;
-  top: 84px;
-  height: calc(100vh - 84px);
+  top: 0;
+  height: 100vh;
   overflow: hidden;
   padding: clamp(2.5rem, 5vw, 4rem) clamp(2rem, 4vw, 4rem);
   display: flex;
@@ -912,8 +920,8 @@ li::before {
   /* Keep savings-content sticky so the scroll animation still works */
   .savings-content {
     position: sticky;
-    top: 84px;
-    height: calc(100vh - 84px);
+    top: 0;
+    height: 100vh;
     padding: 2rem 1.5rem;
   }
 
@@ -1004,10 +1012,21 @@ li::before {
     grid-template-columns: 1fr;
     margin-top: 3rem;
     gap: 2.5rem;
+
+  /* Increase navbar logo size on small phones while keeping navbar height fixed.
+     Constrain the wrap to the nav height so the header doesn't grow. */
+  .brand-logo-wrap {
+    height: 64px;
+    overflow: hidden;
   }
 
-  .partner-heading {
-    margin-bottom: 1rem;
+  .brand-logo {
+    height: 56px;
+    max-height: 56px;
+    width: auto;
+    object-fit: contain;
+    margin-top: 0;
+  }
   }
 }
 
@@ -1286,6 +1305,7 @@ li::before {
   padding-top: 1.4rem;
   border-top: 1px solid var(--line);
   font-size: 0.9rem;
+  text-align: center;
 }
 
 .reveal {
@@ -1315,7 +1335,6 @@ li::before {
 
 @media (max-width: 980px) {
   .hero-grid,
-  .about-story-grid,
   .split-layout,
   .insight-grid,
   .footer-grid {
@@ -1325,25 +1344,6 @@ li::before {
   .hero-grid {
     min-height: auto;
     padding-top: 4rem;
-  }
-
-  .about-story-grid {
-    gap: 2rem;
-  }
-
-  .about-collage-large {
-    min-height: 390px;
-    max-width: 100%;
-  }
-
-  .about-collage-small {
-    display: none;
-  }
-
-  .about-story-copy {
-    grid-column: auto;
-    grid-row: auto;
-    padding-left: 0;
   }
 
   .card-grid.four {
@@ -1366,7 +1366,16 @@ li::before {
   }
 
   .nav {
-    min-height: 68px;
+    display: flex;
+    grid-template-columns: unset;
+    grid-template-areas: unset;
+    height: 64px;
+    justify-content: flex-end;
+  }
+
+  .brand-logo-wrap {
+    height: auto;
+    overflow: visible;
   }
 
   .site-header {
@@ -1374,54 +1383,77 @@ li::before {
   }
 
   .brand {
-    gap: 0.08rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    grid-area: unset;
   }
 
-  .brand-icon {
-    width: 42px;
-    height: 42px;
+  .brand-logo {
+    height: 130px;
   }
 
-  .brand-name {
-    width: 140px;
-    height: 42px;
-    margin-left: -0.75rem;
-    object-fit: cover;
-    object-position: center 46.5%;
+  .brand-tagline {
+    font-size: 0.55rem;
+    bottom: 14px;
   }
 
   .nav-toggle {
-    display: block;
+    display: inline-flex;
   }
 
   .nav-menu {
+    display: none;
     position: absolute;
     top: 100%;
     right: 14px;
     left: 14px;
-    display: none;
-    align-items: stretch;
+    flex-direction: column;
     gap: 0;
     padding: 0.75rem;
     border: 1px solid var(--line);
     background: var(--white);
     box-shadow: var(--shadow);
-    flex-direction: column;
     border-radius: 10px;
+    z-index: 200;
   }
 
   .nav-menu.is-open {
     display: flex;
   }
 
-  .nav-menu a {
-    padding: 0.9rem 1rem;
-    border-radius: 6px;
+  .nav-left,
+  .nav-right {
+    display: contents;
   }
 
-  .nav-menu .nav-cta {
-    margin-top: 0.5rem;
+  .nav-left a,
+  .nav-right a {
+    display: block;
+    padding: 0.9rem 1rem;
+    border-radius: 6px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+
+  .nav-left a::after {
+    display: none;
+  }
+
+  .nav-left a:hover,
+  .nav-right a:hover {
+    background: var(--cream);
+  }
+
+  .nav-cta {
+    margin-top: 0.25rem;
     text-align: center;
+    justify-content: center;
+    border-radius: 6px;
+    border: 1.5px solid var(--gold);
   }
 
   h1 {
@@ -1453,30 +1485,22 @@ li::before {
     padding-top: 3.5rem;
   }
 
-  .about-collage-large {
-    min-height: 300px;
+  .about-story-grid {
+    display: block;
   }
 
-  .about-story-copy {
-    grid-column: auto;
-    grid-row: auto;
-    padding-left: 0;
+  .about-pfp-wrap {
+    display: block;
+    width: 100%;
+    margin-bottom: 2rem;
   }
 
-  .about-headline-row {
-    gap: 1rem;
-  }
-
-  .script-label {
-    margin-left: calc(1rem + 2px);
-  }
-
-  .about-headline-line {
-    height: 100%;
-  }
-
-  .about-story-copy h2 {
-    font-size: clamp(2rem, 10vw, 3rem);
+  .about-pfp {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 280px;
+    margin: 0;
   }
 
   /* Cards */
@@ -1563,7 +1587,22 @@ li::before {
   .footer-logo {
     width: 72px;
     height: 72px;
+    display: block;
+    margin: 0 auto 0.5rem;
   }
+
+  .footer-grid > div:first-child {
+    text-align: center;
+  }
+
+  .footer-grid > div:nth-child(2) {
+    text-align: center;
+  }
+
+  .footer-grid > div:nth-child(2) a {
+    display: block;
+  }
+
 }
 
 /* ── Extra-small phones (≤ 480px) ─────────────────────────────── */
@@ -1573,14 +1612,18 @@ li::before {
     width: min(100% - 20px, 1180px);
   }
 
-  .brand-icon {
-    width: 36px;
-    height: 36px;
+  /* Keep the header height stable while increasing the visible logo size */
+  .brand-logo-wrap {
+    height: 100px;
+    overflow: hidden;
   }
 
-  .brand-name {
-    width: 120px;
-    height: 36px;
+  .brand-logo {
+    height: 92px;
+    max-height: 92px;
+    width: auto;
+    object-fit: contain;
+    margin-top: 0;
   }
 
   h1 {
@@ -1599,10 +1642,6 @@ li::before {
   .about-family-card,
   .about-portrait-card {
     min-height: 360px;
-  }
-
-  .about-collage-large {
-    min-height: 240px;
   }
 
   .savings-pill-header {
